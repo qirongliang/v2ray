@@ -304,6 +304,7 @@ getData() {
             resolve=`curl -sm8 ipget.net/?ip=${DOMAIN}`
             if [ "$resolve" != "$v4" ] && [ "$resolve" != "$v6" ]; then
 		if echo $resolve | grep -q html; then
+  colorEcho ${BLUE}  " resolve ${resolve} , v4 ${v4} , v6 ${v6}"
 			colorEcho ${BLUE}  " 域名解析失败，请添加域名解析记录或等待DNS同步，稍后再试。"
 		else
 			colorEcho ${BLUE}  " ${DOMAIN} 解析结果：${resolve}"
